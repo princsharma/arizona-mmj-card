@@ -1,4 +1,17 @@
+"use client";
+
+import { useState } from "react";
+
+const links = [
+  { href: "#how", icon: "fa-solid fa-wave-square", label: "How It Works" },
+  { href: "#pricing", icon: "fa-solid fa-dollar-sign", label: "Pricing" },
+  { href: "#faq", icon: "fa-regular fa-comment", label: "FAQ" },
+];
+
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
+  const close = () => setOpen(false);
+
   return (
     <nav className="nav" aria-label="Primary">
       <div className="nav-inner">
@@ -11,22 +24,48 @@ export default function Navbar() {
             <span>Licensed Medical Evaluations</span>
           </div>
         </a>
+
         <div className="nav-links">
-          <a href="#how">
-            <i className="fa-solid fa-wave-square" aria-hidden="true"></i> How It
-            Works
-          </a>
-          <a href="#pricing">
-            <i className="fa-solid fa-dollar-sign" aria-hidden="true"></i> Pricing
-          </a>
-          <a href="#faq">
-            <i className="fa-regular fa-comment" aria-hidden="true"></i> FAQ
-          </a>
+          {links.map((l) => (
+            <a key={l.href} href={l.href}>
+              <i className={l.icon} aria-hidden="true"></i> {l.label}
+            </a>
+          ))}
           <a href="#cta" className="btn btn-primary">
             <i className="fa-solid fa-user-plus" aria-hidden="true"></i> Get
             Started
           </a>
         </div>
+
+        <button
+          type="button"
+          className="nav-toggle"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          onClick={() => setOpen((v) => !v)}
+        >
+          <i
+            className={open ? "fa-solid fa-xmark" : "fa-solid fa-bars"}
+            aria-hidden="true"
+          ></i>
+        </button>
+      </div>
+
+      <div
+        id="mobile-menu"
+        className={`nav-mobile${open ? " open" : ""}`}
+        hidden={!open}
+      >
+        {links.map((l) => (
+          <a key={l.href} href={l.href} onClick={close}>
+            <i className={l.icon} aria-hidden="true"></i> {l.label}
+          </a>
+        ))}
+        <a href="#cta" className="btn btn-primary nav-mobile-cta" onClick={close}>
+          <i className="fa-solid fa-user-plus" aria-hidden="true"></i> Get
+          Started
+        </a>
       </div>
     </nav>
   );
