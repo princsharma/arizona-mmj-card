@@ -10,7 +10,7 @@ const mulish = Mulish({
   display: "swap",
 });
 
-const SITE_URL = "https://arizonammj.example.com";
+const SITE_URL = "https://arizonamedicalmarijuanacard.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
