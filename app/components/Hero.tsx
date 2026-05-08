@@ -1,10 +1,14 @@
 import Image from "next/image";
 import HeroForm from "./HeroForm";
 
-const trustBadges = [
-  { src: "/hero/hipaa-compliant.webp", label: "HIPAA-Compliant" },
-  { src: "/hero/money-back-guarantee.webp", label: "Money-Back Guarantee" },
-  { src: "/hero/licensed-doctors.webp", label: "Licensed Doctors" },
+type Badge =
+  | { kind: "icon"; icon: string; label: string }
+  | { kind: "image"; src: string; label: string };
+
+const trustBadges: Badge[] = [
+  { kind: "icon", icon: "fa-solid fa-shield-halved", label: "HIPAA-Compliant" },
+  { kind: "image", src: "/hero/money-back-guarantee.webp", label: "Money-Back Guarantee" },
+  { kind: "image", src: "/hero/licensed-doctors.webp", label: "Licensed Doctors" },
 ];
 
 export default function Hero() {
@@ -52,13 +56,17 @@ export default function Hero() {
               {trustBadges.map((b) => (
                 <li key={b.label}>
                   <span className="hero-trust-icon">
-                    <Image
-                      src={b.src}
-                      alt=""
-                      width={32}
-                      height={32}
-                      aria-hidden="true"
-                    />
+                    {b.kind === "image" ? (
+                      <Image
+                        src={b.src}
+                        alt=""
+                        width={32}
+                        height={32}
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <i className={b.icon} aria-hidden="true"></i>
+                    )}
                   </span>
                   {b.label}
                 </li>

@@ -1,9 +1,19 @@
+import Image from "next/image";
+
 export default function Expert() {
   return (
     <section className="expert">
       <div className="container">
         <div className="expert-grid">
           <div className="expert-image">
+            <Image
+              src="/expert/doctors.webp"
+              alt="Licensed Arizona medical professionals"
+              fill
+              sizes="(max-width: 980px) 100vw, 50vw"
+              priority={false}
+              style={{ objectFit: "cover" }}
+            />
             <div className="expert-stats-card">
               <div className="stat">
                 <div className="num expert-trust-num">
