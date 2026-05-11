@@ -2,6 +2,18 @@
 
 import { useState, type FormEvent } from "react";
 
+const STATE = {
+  stateAbbr: "AZ",
+  stateName: "Arizona",
+  city: "Phoenix",
+  timezone: "MST",
+} as const;
+
+const UTM_SOURCE = "arizonamedicalmarijuanacard";
+
+const HEALLY_PREFILL_URL =
+  "https://mymmj.getheally.com/patient_admin/prefill";
+
 type FormState = {
   fullName: string;
   email: string;
@@ -19,6 +31,13 @@ const initial: FormState = {
   agreeTerms: false,
   marketingOptIn: false,
 };
+
+function base64UrlEncode(json: string): string {
+  return btoa(json)
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=+$/, "");
+}
 
 function validate(values: FormState): Errors {
   const errors: Errors = {};
@@ -41,7 +60,7 @@ function validate(values: FormState): Errors {
 export default function HeroForm() {
   const [values, setValues] = useState<FormState>(initial);
   const [errors, setErrors] = useState<Errors>({});
-  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   function update<K extends keyof FormState>(key: K, value: FormState[K]) {
     setValues((prev) => ({ ...prev, [key]: value }));
@@ -56,36 +75,48 @@ export default function HeroForm() {
 
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (submitting) return;
+
     const validationErrors = validate(values);
     setErrors(validationErrors);
     if (Object.keys(validationErrors).length > 0) return;
 
+    setSubmitting(true);
+
+    const nameParts = values.fullName.trim().split(/\s+/);
+    const firstName = nameParts[0];
+    const lastName = nameParts.slice(1).join(" ") || "";
+
     const payload = {
-      fullName: values.fullName.trim(),
+      first_name: firstName,
+      last_name: lastName,
       email: values.email.trim(),
       phone: values.phone.trim(),
-      agreeTerms: values.agreeTerms,
-      marketingOptIn: values.marketingOptIn,
-      submittedAt: new Date().toISOString(),
+      state: STATE.stateAbbr,
+      state_of_evaluation: STATE.stateAbbr,
+      timezone: STATE.timezone,
+      city: STATE.city,
+      extra_data: {
+        "contact[contact_type]": "Web Form",
+        "product[name]": "Eva",
+        utm_source: UTM_SOURCE,
+        marketing_opt_in: values.marketingOptIn,
+      },
     };
-    console.log("Application form submitted:", payload);
-    setSubmitted(true);
-  }
 
-  if (submitted) {
-    return (
-      <form className="hero-form" noValidate>
-        <div className="hf-success">
-          <div className="hf-success-icon">
-            <i className="fa-solid fa-circle-check" aria-hidden="true"></i>
-          </div>
-          <h3>Application Started!</h3>
-          <p>
-            A licensed Arizona physician will contact you within 24 hours to
-            schedule your evaluation.
-          </p>
-        </div>
-      </form>
+    const preset = base64UrlEncode(JSON.stringify(payload));
+
+    if (typeof window !== "undefined") {
+      const w = window as Window & { dataLayer?: Record<string, unknown>[] };
+      w.dataLayer = w.dataLayer || [];
+      w.dataLayer.push({
+        event: "heallyValidatedSubmit",
+        utm_source: UTM_SOURCE,
+      });
+    }
+
+    window.location.assign(
+      `${HEALLY_PREFILL_URL}?redirect=sched&preset=${preset}&utm_source=${UTM_SOURCE}`,
     );
   }
 
@@ -154,9 +185,22 @@ export default function HeroForm() {
             id="hf-phone"
             type="tel"
             autoComplete="tel"
+            inputMode="numeric"
             placeholder="(555) 123-4567"
+            maxLength={14}
             value={values.phone}
-            onChange={(e) => update("phone", e.target.value)}
+            onChange={(e) => {
+              const digits = e.target.value.replace(/\D/g, "").slice(0, 10);
+              let formatted = digits;
+              if (digits.length > 6) {
+                formatted = `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+              } else if (digits.length > 3) {
+                formatted = `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+              } else if (digits.length > 0) {
+                formatted = `(${digits}`;
+              }
+              update("phone", formatted);
+            }}
             aria-invalid={Boolean(errors.phone)}
             aria-describedby={errors.phone ? "hf-phone-error" : undefined}
           />
@@ -193,9 +237,16 @@ export default function HeroForm() {
           <span>Send me updates and special offers</span>
         </label>
 
-        <button type="submit" className="hf-submit">
-          Continue to Next Step{" "}
-          <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        <button
+          type="submit"
+          className="hf-submit"
+          disabled={submitting}
+          aria-busy={submitting}
+        >
+          {submitting ? "Redirecting…" : "Continue to Next Step"}
+          {!submitting && (
+            <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          )}
         </button>
 
         <p className="hf-note">
