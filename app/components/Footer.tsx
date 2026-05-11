@@ -19,7 +19,7 @@ export default function Footer() {
             </p>
           </div>
           <div>
-            <h4>Quick Links</h4>
+            <h3>Quick Links</h3>
             <ul>
               <li>
                 <a href="#how">How It Works</a>
@@ -33,7 +33,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4>Contact</h4>
+            <h3>Contact</h3>
             <ul className="contact">
               <li>
                 <i className="fa-solid fa-phone" aria-hidden="true"></i> (555)
