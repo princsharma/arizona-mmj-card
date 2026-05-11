@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 const links = [
   { href: "#how", icon: "fa-solid fa-wave-square", label: "How It Works" },
@@ -16,13 +17,15 @@ export default function Navbar() {
     <nav className="nav" aria-label="Primary">
       <div className="nav-inner">
         <a href="/" className="brand" aria-label="Arizona MMJ home">
-          <div className="brand-mark">
-            <i className="fa-solid fa-leaf" aria-hidden="true"></i>
-          </div>
-          <div className="brand-text">
-            <strong>Arizona MMJ</strong>
-            <span>Licensed Medical Evaluations</span>
-          </div>
+          <Image
+            src="/arizona-logo.webp"
+            alt="Arizona MMJ"
+            width={441}
+            height={44}
+            priority
+            className="brand-logo"
+            style={{ width: "auto" }}
+          />
         </a>
 
         <div className="nav-links">

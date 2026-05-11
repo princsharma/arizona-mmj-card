@@ -1,9 +1,19 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-grid">
           <div className="footer-tagline">
+            <Image
+              src="/white-logo.webp"
+              alt="Arizona MMJ"
+              width={917}
+              height={314}
+              className="footer-logo"
+              style={{ width: "auto" }}
+            />
             <p className="tag-line">
               Professional medical marijuana evaluations for Arizona residents.
             </p>
