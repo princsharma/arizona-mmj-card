@@ -2,6 +2,8 @@ import TopBar from "./components/TopBar";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import WhyChooseUs from "./components/WhyChooseUs";
+import Patients from "./components/Patients";
+import Badges from "./components/Badges";
 import HowItWorks from "./components/HowItWorks";
 import Expert from "./components/Expert";
 import ConnectDoctor from "./components/ConnectDoctor";
@@ -22,6 +24,8 @@ export default function Home() {
       <main>
         <Hero />
         <WhyChooseUs />
+        <Patients />
+        <Badges />
         <HowItWorks />
         <Expert />
         <ConnectDoctor />

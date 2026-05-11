@@ -469,11 +469,17 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .patients-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:80px}
 .pat-card{
   position:relative;border-radius:var(--radius-xl);overflow:hidden;
-  height:280px;background-size:cover;background-position:center;
+  height:280px;
   box-shadow:var(--shadow-md);
+  transition:transform .35s ease,box-shadow .35s ease;
+}
+.pat-card-bg{
+  position:absolute;inset:0;z-index:0;
+  background-size:cover;background-position:center;
+  transition:transform .6s cubic-bezier(.2,.8,.2,1);
 }
 .pat-card::after{
-  content:"";position:absolute;inset:0;
+  content:"";position:absolute;inset:0;z-index:1;
   background:linear-gradient(180deg,rgba(15,23,42,0) 30%,rgba(15,23,42,.85) 100%);
 }
 .pat-card .icon-tile{
@@ -486,9 +492,23 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   position:absolute;left:22px;right:22px;bottom:22px;
   color:#fff;font-size:22px;line-height:1.2;z-index:2;
 }
-.pat-card-1{background-image:url('https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=900')}
-.pat-card-2{background-image:url('https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=900')}
-.pat-card-3{background-image:url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=900')}
+.pat-card-1 .pat-card-bg{background-image:url('/why-choose/licensed-ma-physicians.webp')}
+.pat-card-2 .pat-card-bg{background-image:url('/why-choose/online-consultations.webp')}
+.pat-card-3 .pat-card-bg{background-image:url('/why-choose/reliable-process.webp')}
+.pat-cards-wrap > div:hover .pat-card{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.pat-cards-wrap > div:hover .pat-card-bg{transform:scale(1.07)}
+
+/* ---------- ON-SCROLL REVEAL ---------- */
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1);
+  will-change:opacity,transform;
+}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+}
 .pat-caption{padding:0 6px;margin-top:14px;color:var(--ink-500);font-size:14px}
 .pat-cards-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .pat-cards-wrap > div{display:flex;flex-direction:column}
@@ -502,7 +522,9 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   background:#fff;border-radius:var(--radius-lg);
   border:1px solid var(--ink-100);
   padding:26px 18px;text-align:center;
+  transition:transform .25s ease,box-shadow .25s ease;
 }
+.badge:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
 .badge-icon{
   width:48px;height:48px;border-radius:14px;
   background:#e7ede7;color:#5a7560;
