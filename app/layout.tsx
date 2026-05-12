@@ -56,6 +56,9 @@ export const metadata: Metadata = {
     },
   },
   icons: { icon: "/favicon.ico" },
+  verification: {
+    google: "PsYPAbrrlLobhmhq9n2ewMKgsKRMTvFp3JIspFrNa5o",
+  },
 };
 
 const structuredData = {
