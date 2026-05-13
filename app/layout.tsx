@@ -11,16 +11,21 @@ const mulish = Mulish({
 });
 
 const SITE_URL = "https://arizonamedicalmarijuanacard.com";
+const GTM_ID = "GTM-TKJC3CXL";
+
+const META_TITLE = "Apply Your Medical Marijuana Card in Arizona";
+const META_DESCRIPTION =
+  "Get approved for an Arizona medical marijuana card online with trusted doctors, simple evaluations, and secure patient care.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Arizona MMJ — Licensed Medical Evaluations",
+    default: META_TITLE,
     template: "%s | Arizona MMJ",
   },
-  description:
-    "100% online medical marijuana evaluations with licensed Arizona physicians. Same-day approval, 98% success rate, HIPAA compliant. Get your AZ MMJ card today.",
+  description: META_DESCRIPTION,
   keywords: [
+    "Medical Marijuana Card Arizona",
     "Arizona medical marijuana card",
     "AZ MMJ card",
     "medical cannabis Arizona",
@@ -35,15 +40,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE_URL,
     siteName: "Arizona MMJ",
-    title: "Get Your Arizona Medical Marijuana Card Online",
-    description:
-      "Same-day online medical marijuana evaluations with licensed Arizona physicians. 98% approval rate, HIPAA compliant.",
+    title: META_TITLE,
+    description: META_DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Arizona MMJ — Medical Marijuana Card Online",
-    description:
-      "Same-day online MMJ evaluations with licensed Arizona physicians.",
+    title: META_TITLE,
+    description: META_DESCRIPTION,
   },
   robots: {
     index: true,
@@ -141,8 +144,28 @@ export default function RootLayout({
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
         />
+        <Script
+          id="gtm-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GTM_ID}');`,
+          }}
+        />
       </head>
       <body>
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height={0}
+            width={0}
+            style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager"
+          />
+        </noscript>
         {children}
         <Script
           id="ld-json-schema"

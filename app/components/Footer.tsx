@@ -41,7 +41,9 @@ export default function Footer() {
               </li>
               <li>
                 <i className="fa-regular fa-envelope" aria-hidden="true"></i>{" "}
-                gmail.com
+                <a href="mailto:contact@medicalmarijuanacardarizona.com">
+                  contact@medicalmarijuanacardarizona.com
+                </a>
               </li>
               <li>
                 <i className="fa-solid fa-location-dot" aria-hidden="true"></i>{" "}
