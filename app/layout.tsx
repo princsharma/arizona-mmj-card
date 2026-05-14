@@ -59,7 +59,13 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  icons: { icon: "/favicon.ico" },
+  icons: {
+    icon: [
+      { url: "/arizona-favicon.webp", type: "image/webp" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    shortcut: "/favicon.ico",
+  },
   verification: {
     google: "PsYPAbrrlLobhmhq9n2ewMKgsKRMTvFp3JIspFrNa5o",
   },
