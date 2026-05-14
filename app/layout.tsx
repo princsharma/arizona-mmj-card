@@ -60,11 +60,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [
-      { url: "/arizona-favicon.webp", type: "image/webp" },
-      { url: "/favicon.ico", sizes: "any" },
-    ],
-    shortcut: "/favicon.ico",
+    icon: { url: "/arizona-favicon.webp", type: "image/webp" },
   },
   verification: {
     google: "PsYPAbrrlLobhmhq9n2ewMKgsKRMTvFp3JIspFrNa5o",
