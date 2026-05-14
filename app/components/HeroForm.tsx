@@ -121,7 +121,12 @@ export default function HeroForm() {
   }
 
   return (
-    <form className="hero-form" onSubmit={onSubmit} noValidate>
+    <form
+      id="apply"
+      className="hero-form"
+      onSubmit={onSubmit}
+      noValidate
+    >
       <div className="hf-fields">
         <span className="eyebrow">
           <i className="fa-solid fa-circle-check" aria-hidden="true"></i> Get

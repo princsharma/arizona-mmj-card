@@ -61,7 +61,7 @@ export default function HowItWorks() {
           ))}
         </div>
         <div className="how-cta">
-          <a href="#cta" className="btn btn-primary btn-lg">
+          <a href="#apply" className="btn btn-primary btn-lg">
             Consult With an Arizona MMJ Doctor{" "}
             <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
           </a>

@@ -79,7 +79,7 @@ export default function Expert() {
               </div>
             </div>
             <div className="expert-cta">
-              <a href="#cta" className="btn btn-primary btn-lg">
+              <a href="#apply" className="btn btn-primary btn-lg">
                 Start Your Journey Today{" "}
                 <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
               </a>

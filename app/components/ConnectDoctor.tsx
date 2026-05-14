@@ -37,7 +37,7 @@ export default function ConnectDoctor() {
             with clarity and confidence.
           </p>
           <div className="connect-ctas">
-            <a href="#cta" className="btn btn-primary btn-lg">
+            <a href="#apply" className="btn btn-primary btn-lg">
               Schedule Consultation{" "}
               <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </a>

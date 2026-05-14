@@ -48,7 +48,7 @@ export default function Pricing() {
                 </li>
               ))}
             </ul>
-            <a href="#cta" className="price-cta">
+            <a href="#apply" className="price-cta">
               Apply for Your Card{" "}
               <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </a>
@@ -67,7 +67,7 @@ export default function Pricing() {
                 </li>
               ))}
             </ul>
-            <a href="#cta" className="price-cta">
+            <a href="#apply" className="price-cta">
               Renew Your Card{" "}
               <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </a>

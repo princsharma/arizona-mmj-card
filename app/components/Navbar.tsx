@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const links = [
   { href: "#how", icon: "fa-solid fa-wave-square", label: "How It Works" },
@@ -16,7 +17,7 @@ export default function Navbar() {
   return (
     <nav className="nav" aria-label="Primary">
       <div className="nav-inner">
-        <a href="/" className="brand" aria-label="Arizona MMJ home">
+        <Link href="/" className="brand" aria-label="Arizona MMJ home">
           <Image
             src="/arizona-logo.webp"
             alt="Arizona MMJ"
@@ -26,7 +27,7 @@ export default function Navbar() {
             className="brand-logo"
             style={{ width: "auto" }}
           />
-        </a>
+        </Link>
 
         <div className="nav-links">
           {links.map((l) => (
@@ -34,7 +35,7 @@ export default function Navbar() {
               <i className={l.icon} aria-hidden="true"></i> {l.label}
             </a>
           ))}
-          <a href="#cta" className="btn btn-primary">
+          <a href="#apply" className="btn btn-primary">
             <i className="fa-solid fa-user-plus" aria-hidden="true"></i> Get
             Started
           </a>
@@ -65,7 +66,7 @@ export default function Navbar() {
             <i className={l.icon} aria-hidden="true"></i> {l.label}
           </a>
         ))}
-        <a href="#cta" className="btn btn-primary nav-mobile-cta" onClick={close}>
+        <a href="#apply" className="btn btn-primary nav-mobile-cta" onClick={close}>
           <i className="fa-solid fa-user-plus" aria-hidden="true"></i> Get
           Started
         </a>

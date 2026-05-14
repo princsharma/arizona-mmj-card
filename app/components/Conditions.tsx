@@ -66,7 +66,7 @@ export default function Conditions() {
             A physician must evaluate your medical history and confirm that your
             condition meets Arizona&apos;s legal criteria before certification.
           </p>
-          <a href="#cta" className="btn-teal">
+          <a href="#apply" className="btn-teal">
             Check Your Eligibility
           </a>
         </div>
