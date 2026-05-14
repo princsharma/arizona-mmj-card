@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Mulish } from "next/font/google";
 import Script from "next/script";
+import HashScroller from "./components/HashScroller";
 import "./globals.css";
 
 const mulish = Mulish({
@@ -166,6 +167,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             title="Google Tag Manager"
           />
         </noscript>
+        <HashScroller />
         {children}
         <Script
           id="ld-json-schema"
