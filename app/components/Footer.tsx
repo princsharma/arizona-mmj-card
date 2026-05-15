@@ -8,7 +8,8 @@ export default function Footer() {
           <div className="footer-tagline">
             <Image
               src="/white-logo.webp"
-              alt="Arizona MMJ"
+              alt="Arizona Medical Marijuana Card logo"
+              title="Arizona MMJ"
               width={917}
               height={314}
               className="footer-logo"
@@ -22,13 +23,19 @@ export default function Footer() {
             <h3>Quick Links</h3>
             <ul>
               <li>
-                <a href="#how">How It Works</a>
+                <a href="#how" title="How the Arizona MMJ process works">
+                  How It Works
+                </a>
               </li>
               <li>
-                <a href="#pricing">Pricing</a>
+                <a href="#pricing" title="Arizona MMJ card pricing">
+                  Pricing
+                </a>
               </li>
               <li>
-                <a href="#faq">FAQ</a>
+                <a href="#faq" title="Frequently asked questions">
+                  FAQ
+                </a>
               </li>
             </ul>
           </div>
@@ -41,7 +48,10 @@ export default function Footer() {
               </li>
               <li>
                 <i className="fa-regular fa-envelope" aria-hidden="true"></i>{" "}
-                <a href="mailto:contact@medicalmarijuanacardarizona.com">
+                <a
+                  href="mailto:contact@medicalmarijuanacardarizona.com"
+                  title="Email Arizona MMJ support"
+                >
                   contact@medicalmarijuanacardarizona.com
                 </a>
               </li>

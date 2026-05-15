@@ -8,7 +8,8 @@ export default function Expert() {
           <div className="expert-image">
             <Image
               src="/expert/doctors.webp"
-              alt="Licensed Arizona medical professionals"
+              alt="Licensed Arizona medical marijuana doctors providing online evaluations"
+              title="Licensed Arizona Medical Professionals"
               fill
               sizes="(max-width: 980px) 100vw, 50vw"
               priority={false}
@@ -79,7 +80,11 @@ export default function Expert() {
               </div>
             </div>
             <div className="expert-cta">
-              <a href="#apply" className="btn btn-primary btn-lg">
+              <a
+                href="#apply"
+                title="Start your Arizona MMJ application today"
+                className="btn btn-primary btn-lg"
+              >
                 Start Your Journey Today{" "}
                 <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
               </a>

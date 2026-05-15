@@ -43,11 +43,19 @@ export default function Hero() {
               required legal and clinical standards for patient certification.
             </p>
             <div className="hero-ctas">
-              <a href="#apply" className="btn btn-primary btn-lg">
+              <a
+                href="#apply"
+                title="Start your Arizona medical marijuana card application"
+                className="btn btn-primary btn-lg"
+              >
                 Start Application{" "}
                 <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
               </a>
-              <a href="#how" className="btn btn-outline btn-lg">
+              <a
+                href="#how"
+                title="See how the Arizona MMJ evaluation works"
+                className="btn btn-outline btn-lg"
+              >
                 <i className="fa-solid fa-video" aria-hidden="true"></i> See How
                 It Works
               </a>
@@ -59,10 +67,10 @@ export default function Hero() {
                     {b.kind === "image" ? (
                       <Image
                         src={b.src}
-                        alt=""
+                        alt={b.label}
+                        title={b.label}
                         width={32}
                         height={32}
-                        aria-hidden="true"
                       />
                     ) : (
                       <i className={b.icon} aria-hidden="true"></i>

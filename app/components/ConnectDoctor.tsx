@@ -37,11 +37,19 @@ export default function ConnectDoctor() {
             with clarity and confidence.
           </p>
           <div className="connect-ctas">
-            <a href="#apply" className="btn btn-primary btn-lg">
+            <a
+              href="#apply"
+              title="Schedule an Arizona MMJ consultation"
+              className="btn btn-primary btn-lg"
+            >
               Schedule Consultation{" "}
               <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </a>
-            <a href="#how" className="btn btn-outline btn-lg">
+            <a
+              href="#how"
+              title="Learn how to get your Arizona MMJ card"
+              className="btn btn-outline btn-lg"
+            >
               Learn More
             </a>
           </div>
@@ -52,10 +60,10 @@ export default function ConnectDoctor() {
                   {t.kind === "image" ? (
                     <Image
                       src={t.src}
-                      alt=""
+                      alt={t.title}
+                      title={t.title}
                       width={28}
                       height={28}
-                      aria-hidden="true"
                     />
                   ) : (
                     <i className={t.icon} aria-hidden="true"></i>

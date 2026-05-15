@@ -66,7 +66,11 @@ export default function Conditions() {
             A physician must evaluate your medical history and confirm that your
             condition meets Arizona&apos;s legal criteria before certification.
           </p>
-          <a href="#apply" className="btn-teal">
+          <a
+            href="#apply"
+            title="Check your eligibility for an Arizona MMJ card"
+            className="btn-teal"
+          >
             Check Your Eligibility
           </a>
         </div>

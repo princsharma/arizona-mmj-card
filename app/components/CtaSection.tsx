@@ -25,7 +25,11 @@ export default function CtaSection() {
           Connect with a licensed physician through a secure, fully online
           process and take the next step toward getting approved.
         </p>
-        <a href="#apply" className="cta-btn">
+        <a
+          href="#apply"
+          title="Book your Arizona MMJ appointment now"
+          className="cta-btn"
+        >
           Book Your Appointment Now{" "}
           <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
         </a>

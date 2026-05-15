@@ -49,10 +49,10 @@ export default function HowItWorks() {
               <div className="step-icon">
                 <Image
                   src={s.image}
-                  alt=""
+                  alt={`${s.title} — Arizona medical marijuana card step`}
+                  title={s.title}
                   width={56}
                   height={56}
-                  aria-hidden="true"
                 />
               </div>
               <h3>{s.title}</h3>
@@ -61,7 +61,11 @@ export default function HowItWorks() {
           ))}
         </div>
         <div className="how-cta">
-          <a href="#apply" className="btn btn-primary btn-lg">
+          <a
+            href="#apply"
+            title="Consult with a licensed Arizona MMJ doctor online"
+            className="btn btn-primary btn-lg"
+          >
             Consult With an Arizona MMJ Doctor{" "}
             <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
           </a>

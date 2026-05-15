@@ -17,10 +17,16 @@ export default function Navbar() {
   return (
     <nav className="nav" aria-label="Primary">
       <div className="nav-inner">
-        <Link href="/" className="brand" aria-label="Arizona MMJ home">
+        <Link
+          href="/"
+          className="brand"
+          aria-label="Arizona MMJ home"
+          title="Arizona Medical Marijuana Card — home"
+        >
           <Image
             src="/arizona-logo.webp"
-            alt="Arizona MMJ"
+            alt="Arizona Medical Marijuana Card logo"
+            title="Arizona MMJ"
             width={441}
             height={44}
             priority
@@ -31,11 +37,15 @@ export default function Navbar() {
 
         <div className="nav-links">
           {links.map((l) => (
-            <a key={l.href} href={l.href}>
+            <a key={l.href} href={l.href} title={l.label}>
               <i className={l.icon} aria-hidden="true"></i> {l.label}
             </a>
           ))}
-          <a href="#apply" className="btn btn-primary">
+          <a
+            href="#apply"
+            title="Start your Arizona MMJ application"
+            className="btn btn-primary"
+          >
             <i className="fa-solid fa-user-plus" aria-hidden="true"></i> Get
             Started
           </a>
@@ -62,11 +72,16 @@ export default function Navbar() {
         hidden={!open}
       >
         {links.map((l) => (
-          <a key={l.href} href={l.href} onClick={close}>
+          <a key={l.href} href={l.href} title={l.label} onClick={close}>
             <i className={l.icon} aria-hidden="true"></i> {l.label}
           </a>
         ))}
-        <a href="#apply" className="btn btn-primary nav-mobile-cta" onClick={close}>
+        <a
+          href="#apply"
+          title="Start your Arizona MMJ application"
+          className="btn btn-primary nav-mobile-cta"
+          onClick={close}
+        >
           <i className="fa-solid fa-user-plus" aria-hidden="true"></i> Get
           Started
         </a>

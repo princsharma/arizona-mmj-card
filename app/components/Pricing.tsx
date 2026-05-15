@@ -48,7 +48,11 @@ export default function Pricing() {
                 </li>
               ))}
             </ul>
-            <a href="#apply" className="price-cta">
+            <a
+              href="#apply"
+              title="Apply for your Arizona MMJ card — $149"
+              className="price-cta"
+            >
               Apply for Your Card{" "}
               <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </a>
@@ -67,7 +71,11 @@ export default function Pricing() {
                 </li>
               ))}
             </ul>
-            <a href="#apply" className="price-cta">
+            <a
+              href="#apply"
+              title="Renew your Arizona MMJ card — $129"
+              className="price-cta"
+            >
               Renew Your Card{" "}
               <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </a>

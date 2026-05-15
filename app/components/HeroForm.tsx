@@ -224,7 +224,10 @@ export default function HeroForm() {
             aria-invalid={Boolean(errors.agreeTerms)}
           />
           <span>
-            I agree to the <a href="#">Terms &amp; Conditions</a>
+            I agree to the{" "}
+            <a href="#" title="Terms and Conditions">
+              Terms &amp; Conditions
+            </a>
           </span>
         </label>
         {errors.agreeTerms && (
