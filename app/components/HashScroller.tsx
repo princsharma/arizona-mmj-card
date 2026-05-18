@@ -19,7 +19,6 @@ export default function HashScroller() {
 
       if (href === "#top") {
         e.preventDefault();
-        e.stopPropagation();
         window.scrollTo({ top: 0, behavior: "smooth" });
         history.replaceState(
           null,
@@ -34,7 +33,6 @@ export default function HashScroller() {
       if (!el) return;
 
       e.preventDefault();
-      e.stopPropagation();
       el.scrollIntoView({ behavior: "smooth", block: "start" });
       history.replaceState(null, "", `#${id}`);
     }
